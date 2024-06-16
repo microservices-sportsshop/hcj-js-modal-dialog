@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.querySelector(".modal");
+    const modalContent = document.querySelector(".modal-content");
     const btn = document.querySelector(".btn");
 
     btn.addEventListener("click", (e) => openModal(e));
@@ -17,6 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function closeModal() {
-        modal.style.display = "none";
+        modalContent.classList.add("slide-up");
+        
+        setTimeout(() => {
+            modal.style.display = "none";
+            modalContent.classList.remove("slide-up");
+        }, 500);
     }
 });
